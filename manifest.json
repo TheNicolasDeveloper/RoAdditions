@@ -14,7 +14,7 @@
                 "https://web.roblox.com/*",
                 "https://roblox.com/*"
             ],
-            "js": ["index.js"],
+            "js": ["loader.js"],
             "run_at": "document_end"
 
         }
