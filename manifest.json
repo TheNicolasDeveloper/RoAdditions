@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Additionox",
+    "version": "1.0",
+    "description": "Adds new features to Roblox",
+    "icons": {
+        "48": "icon.png"
+    },
+    "permissions": ["activeTab", "<all_urls>"],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.roblox.com/*",
+                "https://web.roblox.com/*",
+                "https://roblox.com/*"
+            ],
+            "js": ["index.js"],
+            "run_at": "document_end"
+
+        }
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    }
+}
