@@ -2,6 +2,7 @@
     "manifest_version": 2,
     "name": "RoAdditions",
     "version": "1.0",
+    "update_url": "https://www.nicolastech.xyz/extensionupdates?extension=RoAdditions",
     "description": "Adds new features to Roblox",
     "icons": {
         "48": "icon.png"

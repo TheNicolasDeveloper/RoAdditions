@@ -22,22 +22,31 @@ function dothebuttonthing() {
     var parents = document.querySelectorAll(".game-card-container");
     parents.forEach(function (parent) {
         if (!parent.querySelector(".playBtnRoAdd")) {
-            createButton(
-                parent,
-                "Play",
-                function () {
-                    var url = parent.querySelector("a").getAttribute("href");
-                    var startIndex = url.indexOf("games/") + 6; // add 5 to skip "game/"
-                    var endIndex = url.indexOf("/", startIndex);
-                    var gameId = url.substring(startIndex, endIndex);
-                    window.Roblox.GameLauncher.joinMultiplayerGame(gameId);
-                },
-                "btn-full-width btn-growth-sm playBtnRoAdd",
-                {
-                    bottom: "-20px",
-                    position: "absolute",
-                }
-            );
+            if (
+                parent.parentElement.parentElement.classList.contains("games") ||
+                parent.parentElement.classList.contains("game-carousel") ||
+                parent.parentElement.classList.contains("game-grid")
+
+            ) {
+                createButton(
+                    parent,
+                    "Play",
+                    function () {
+                        var url = parent
+                            .querySelector("a")
+                            .getAttribute("href");
+                        var startIndex = url.indexOf("games/") + 6; // add 5 to skip "game/"
+                        var endIndex = url.indexOf("/", startIndex);
+                        var gameId = url.substring(startIndex, endIndex);
+                        window.Roblox.GameLauncher.joinMultiplayerGame(gameId);
+                        console.log(gameId);
+                    },
+                    "btn-full-width btn-growth-sm place-btn playBtnRoAdd",
+                    {
+                        position: "relative",
+                    }
+                );
+            }
         }
     });
 }
@@ -49,7 +58,7 @@ function addButtonToContainers() {
 
     // Loop through each parent element and add a button to it
     dothebuttonthing();
-    setInterval(dothebuttonthing, 3000);
+    setInterval(dothebuttonthing, 400);
 }
 
 // Define a function to be called when the DOM is mutated
