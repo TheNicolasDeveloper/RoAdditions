@@ -1,26 +1,37 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "RoAdditions",
-    "version": "1.0",
-    "update_url": "https://www.nicolastech.xyz/extensionupdates?extension=RoAdditions",
+    "version": "0.1",
     "description": "Adds new features to Roblox",
     "icons": {
         "48": "icon.png"
     },
-    "permissions": ["activeTab", "<all_urls>"],
+    "action": {
+        "default_title": "RoAdditions",
+        "default_popup": "popup.html"
+    },
+    "permissions": [],
+    "host_permissions": ["*://*/*"],
     "content_scripts": [
         {
             "matches": [
-                "https://www.roblox.com/*",
-                "https://web.roblox.com/*",
-                "https://roblox.com/*"
+                "*://www.roblox.com/*",
+                "*://web.roblox.com/*",
+                "*://roblox.com/*"
             ],
             "js": ["loader.js"],
             "run_at": "document_end"
-
         }
     ],
-    "browser_action": {
-        "default_popup": "popup.html"
+    "web_accessible_resources": [
+        {
+            "resources": ["index.js"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+
+    "options_ui": {
+        "page": "popup.html",
+        "open_in_tab": true
     }
 }
