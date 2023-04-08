@@ -10,8 +10,8 @@
         "default_title": "RoAdditions",
         "default_popup": "popup.html"
     },
-    "permissions": [],
-    "host_permissions": ["*://*/*"],
+    "permissions": ["storage"],
+    "host_permissions": ["*://*/*", "https://userstyles.world/*"],
     "content_scripts": [
         {
             "matches": [
@@ -25,7 +25,7 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["index.js"],
+            "resources": ["index.js", "playbtn.js"],
             "matches": ["<all_urls>"]
         }
     ],
